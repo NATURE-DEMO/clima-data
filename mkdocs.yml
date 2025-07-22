@@ -1,6 +1,6 @@
 site_name: clima-data
-repo_url: https://github.ibm.com/mrg/clima-data
-site_url: https://mrg.github.io/clima-data
+repo_url: https://github.com/NATURE-DEMO/clima-data
+site_url: https://NATURE-DEMO.github.io/clima-data
 site_description: Repo for NATURE-DEMO climatic indices
 site_author: Mattia Rigotti
 edit_uri: edit/main/docs/
@@ -62,7 +62,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/git-alt
-      link: https://github.ibm.com/mrg/clima-data
+      link: https://github.com/NATURE-DEMO/clima-data
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
