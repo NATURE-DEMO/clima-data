@@ -1,0 +1,3368 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Repo for NATURE-DEMO climatic indices">
+      
+      
+        <meta name="author" content="Mattia Rigotti">
+      
+      
+        <link rel="canonical" href="https://mrg.github.io/clima-data/cordex/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../indicators/">
+      
+      
+      <link rel="icon" href="../assets/NATURE-DEMO-logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>CORDEX climate data - clima-data</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial,+sans-serif:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Arial, sans-serif";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cordex-regional-climate-projections" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="clima-data" class="md-header__button md-logo" aria-label="clima-data" data-md-component="logo">
+      
+  <img src="../assets/NATURE-DEMO-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            clima-data
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CORDEX climate data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.ibm.com/mrg/clima-data" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="clima-data" class="md-nav__button md-logo" aria-label="clima-data" data-md-component="logo">
+      
+  <img src="../assets/NATURE-DEMO-logo.png" alt="logo">
+
+    </a>
+    clima-data
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.ibm.com/mrg/clima-data" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    CORDEX climate data
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    CORDEX climate data
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#climate-models-and-climatic-indices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Climate Models and Climatic Indices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-climate-models-gcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Climate Models (GCMs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regional-climate-models-rcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regional Climate Models (RCMs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cordex-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORDEX Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CORDEX Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-cordex-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading CORDEX data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-documentation-clima_datacordex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code documentation clima_data.cordex
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code documentation clima_data.cordex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cordex" class="md-nav__link">
+    <span class="md-ellipsis">
+      cordex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.TIME_FRAMES" class="md-nav__link">
+    <span class="md-ellipsis">
+      TIME_FRAMES
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames" class="md-nav__link">
+    <span class="md-ellipsis">
+      CordexNames
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CordexNames">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_experiment_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_experiment_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_filename_gcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_filename_gcm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_filename_rcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_filename_rcm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_frequency_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_frequency_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_gcm_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_gcm_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_rcm_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_rcm_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_variable_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_variable_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_experiments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_frequencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_frequencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_gcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_gcms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_rcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_rcms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.cordex_data_check" class="md-nav__link">
+    <span class="md-ellipsis">
+      cordex_data_check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.download_cordex" class="md-nav__link">
+    <span class="md-ellipsis">
+      download_cordex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.get_esgf_combinations_for_experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_esgf_combinations_for_experiment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.get_filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_filename
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.get_files" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.prune_invalid_tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      prune_invalid_tasks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indicators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Climatic indicators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full_bib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bibliography
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acknowledgments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Acknowledgments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#climate-models-and-climatic-indices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Climate Models and Climatic Indices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-climate-models-gcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Climate Models (GCMs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regional-climate-models-rcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regional Climate Models (RCMs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cordex-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORDEX Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CORDEX Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-cordex-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading CORDEX data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-documentation-clima_datacordex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code documentation clima_data.cordex
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code documentation clima_data.cordex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cordex" class="md-nav__link">
+    <span class="md-ellipsis">
+      cordex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.TIME_FRAMES" class="md-nav__link">
+    <span class="md-ellipsis">
+      TIME_FRAMES
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames" class="md-nav__link">
+    <span class="md-ellipsis">
+      CordexNames
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CordexNames">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_experiment_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_experiment_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_filename_gcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_filename_gcm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_filename_rcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_filename_rcm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_frequency_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_frequency_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_gcm_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_gcm_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_rcm_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_rcm_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.get_variable_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_variable_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_experiments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_frequencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_frequencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_gcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_gcms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_rcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_rcms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.CordexNames.list_variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.cordex_data_check" class="md-nav__link">
+    <span class="md-ellipsis">
+      cordex_data_check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.download_cordex" class="md-nav__link">
+    <span class="md-ellipsis">
+      download_cordex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.get_esgf_combinations_for_experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_esgf_combinations_for_experiment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.get_filename" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_filename
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.get_files" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cordex.prune_invalid_tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      prune_invalid_tasks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cordex-regional-climate-projections">CORDEX Regional Climate Projections<a class="headerlink" href="#cordex-regional-climate-projections" title="Permanent link">&para;</a></h1>
+<h2 id="climate-models-and-climatic-indices">Climate Models and Climatic Indices<a class="headerlink" href="#climate-models-and-climatic-indices" title="Permanent link">&para;</a></h2>
+<p>Climate models are sophisticated computational tools that simulate Earth's climate system by integrating physical, chemical, and biological processes across the atmosphere, oceans, land, and ice.
+These models, ranging from global (GCMs) to regional (RCMs) scales, use mathematical equations to represent interactions such as energy transfer, ocean currents, and greenhouse gas effects.
+By projecting future scenarios under varying emissions pathways (e.g., RCPs or SSPs), they generate data on key variables like temperature, precipitation, and wind.
+These outputs feed into climatic indices—metrics such as heatwave frequency, drought severity, or extreme rainfall return periods—that quantify specific climate risks.</p>
+<p>CORDEX provides high-resolution regional climate projections essential for assessing localized climate impacts across 14 continent-scale domains, including Europe (Diez-Sierra et al. 2022)<sup id="fnref:Diez-Sierra2022"><a class="footnote-ref" href="#fn:Diez-Sierra2022">1</a></sup>.
+The climatic indices provided by such projections are vital for policymakers, guiding adaptation strategies and resilience planning in sectors like agriculture, hydrology, and urban development.</p>
+<h2 id="global-climate-models-gcms">Global Climate Models (GCMs)<a class="headerlink" href="#global-climate-models-gcms" title="Permanent link">&para;</a></h2>
+<p>Several studies have evaluated and ranked CMIP5 Global Climate Models (GCMs) used in EURO-CORDEX based on their ability to simulate historical climate and provide reliable boundary conditions for regional downscaling.
+Based on (Jury et al. 2015)<sup id="fnref:Jury2015"><a class="footnote-ref" href="#fn:Jury2015">2</a></sup>, we select a subset of GCMs as top performers for EURO-CORDEX.</p>
+<h2 id="regional-climate-models-rcms">Regional Climate Models (RCMs)<a class="headerlink" href="#regional-climate-models-rcms" title="Permanent link">&para;</a></h2>
+<p>Based on evaluations from the EURO-CORDEX ensemble and peer-reviewed studies, there is no universal "best" regional climate model (RCM), but consensus exists on top-performing models for specific variables and regions (Kotlarski et al. 2015; Coppola et al. 2021)<sup id="fnref:Kotlarski2015"><a class="footnote-ref" href="#fn:Kotlarski2015">3</a></sup> <sup id="fnref:Coppola2021"><a class="footnote-ref" href="#fn:Coppola2021">4</a></sup>.</p>
+<h2 id="cordex-variables">CORDEX Variables<a class="headerlink" href="#cordex-variables" title="Permanent link">&para;</a></h2>
+<p>The table below provides a partial list of variables available in EURO-CORDEX — such as near-surface temperature (<code>tas</code>), precipitation (<code>pr</code>), and wind speed (<code>sfcWind</code>).
+The complete list is available in the <a href="https://is-enes-data.github.io/CORDEX_variables_requirement_table.pdf">CORDEX Variable Requirements</a> document.
+These variables serve as foundational inputs for deriving critical climatic indices, ranging from heatwave duration (<code>tx40_cdd</code>) to extreme precipitation return periods (<code>r100yrRP</code>), which quantify climate extremes and trends, enabling researchers and policymakers to evaluate risks like droughts, floods, and temperature anomalies.
+By leveraging these standardized variables, stakeholders can perform robust, region-specific analyses to inform adaptation strategies and resilience planning under evolving climate scenarios.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable Name (CDS)</th>
+<th style="text-align: left;">Short Name</th>
+<th style="text-align: left;">Units</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">10m u-component of the wind</td>
+<td style="text-align: left;"><code>uas</code></td>
+<td style="text-align: left;">m s⁻¹</td>
+<td style="text-align: left;">Eastward wind component at 10m above the surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">10m v-component of the wind</td>
+<td style="text-align: left;"><code>vas</code></td>
+<td style="text-align: left;">m s⁻¹</td>
+<td style="text-align: left;">Northward wind component at 10m above the surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">10m wind speed</td>
+<td style="text-align: left;"><code>sfcWind</code></td>
+<td style="text-align: left;">m s⁻¹</td>
+<td style="text-align: left;">Magnitude of horizontal wind speed at 10m above the surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">200hPa temperature</td>
+<td style="text-align: left;"><code>ta200</code></td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Air temperature at the 200hPa pressure level</td>
+</tr>
+<tr>
+<td style="text-align: left;">200hPa u-component of the wind</td>
+<td style="text-align: left;"><code>ua200</code></td>
+<td style="text-align: left;">m s⁻¹</td>
+<td style="text-align: left;">Eastward wind component at 200hPa</td>
+</tr>
+<tr>
+<td style="text-align: left;">200hPa v-component of the wind</td>
+<td style="text-align: left;"><code>va200</code></td>
+<td style="text-align: left;">m s⁻¹</td>
+<td style="text-align: left;">Northward wind component at 200hPa</td>
+</tr>
+<tr>
+<td style="text-align: left;">2m air temperature</td>
+<td style="text-align: left;"><code>tas</code></td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Near-surface air temperature at 2m above ground</td>
+</tr>
+<tr>
+<td style="text-align: left;">2m relative humidity</td>
+<td style="text-align: left;"><code>hurs</code></td>
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">Relative humidity at 2m above ground</td>
+</tr>
+<tr>
+<td style="text-align: left;">2m surface specific humidity</td>
+<td style="text-align: left;"><code>huss</code></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Specific humidity (mass of water vapor per unit mass of air) at 2m</td>
+</tr>
+<tr>
+<td style="text-align: left;">500hPa geopotential height</td>
+<td style="text-align: left;"><code>zg500</code></td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Gravitational potential energy per unit mass at 500hPa</td>
+</tr>
+<tr>
+<td style="text-align: left;">850hPa u-component of the wind</td>
+<td style="text-align: left;"><code>ua850</code></td>
+<td style="text-align: left;">m s⁻¹</td>
+<td style="text-align: left;">Eastward wind component at 850hPa</td>
+</tr>
+<tr>
+<td style="text-align: left;">850hPa v-component of the wind</td>
+<td style="text-align: left;"><code>va850</code></td>
+<td style="text-align: left;">m s⁻¹</td>
+<td style="text-align: left;">Northward wind component at 850hPa</td>
+</tr>
+<tr>
+<td style="text-align: left;">Evaporation</td>
+<td style="text-align: left;"><code>evspsbl</code></td>
+<td style="text-align: left;">kg m⁻² s⁻¹</td>
+<td style="text-align: left;">Mass of liquid water evaporating from land (includes sublimation)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Land area fraction</td>
+<td style="text-align: left;"><code>sftlf</code></td>
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">Fraction of grid cell occupied by land</td>
+</tr>
+<tr>
+<td style="text-align: left;">Maximum 2m temperature in the last 24 hours</td>
+<td style="text-align: left;"><code>tasmax</code></td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Daily maximum temperature at 2m above the surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mean precipitation flux</td>
+<td style="text-align: left;"><code>pr</code></td>
+<td style="text-align: left;">kg m⁻² s⁻¹</td>
+<td style="text-align: left;">Deposition of water (rain, snow, ice, hail) to the Earth's surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mean sea level pressure</td>
+<td style="text-align: left;"><code>psl</code></td>
+<td style="text-align: left;">Pa</td>
+<td style="text-align: left;">Air pressure adjusted to sea level</td>
+</tr>
+<tr>
+<td style="text-align: left;">Minimum 2m temperature in the last 24 hours</td>
+<td style="text-align: left;"><code>tasmin</code></td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Daily minimum temperature at 2m above the surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">Orography</td>
+<td style="text-align: left;"><code>orog</code></td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Surface elevation (0.0 over oceans)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Surface pressure</td>
+<td style="text-align: left;"><code>ps</code></td>
+<td style="text-align: left;">Pa</td>
+<td style="text-align: left;">Air pressure at the lower boundary of the atmosphere</td>
+</tr>
+<tr>
+<td style="text-align: left;">Surface solar radiation downwards</td>
+<td style="text-align: left;"><code>rsds</code></td>
+<td style="text-align: left;">W m⁻²</td>
+<td style="text-align: left;">Downward shortwave radiative flux at the surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">Surface thermal radiation downward</td>
+<td style="text-align: left;"><code>rlds</code></td>
+<td style="text-align: left;">W m⁻²</td>
+<td style="text-align: left;">Downward longwave radiative flux at the surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">Surface upwelling shortwave radiation</td>
+<td style="text-align: left;"><code>rsus</code></td>
+<td style="text-align: left;">W m⁻²</td>
+<td style="text-align: left;">Upward shortwave radiative flux from the surface</td>
+</tr>
+<tr>
+<td style="text-align: left;">Total cloud cover</td>
+<td style="text-align: left;"><code>clt</code></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Fraction of the sky covered by clouds (whole atmospheric column)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Total run-off flux</td>
+<td style="text-align: left;"><code>mrro</code></td>
+<td style="text-align: left;">kg m⁻² s⁻¹</td>
+<td style="text-align: left;">Combined surface and subsurface liquid water draining from land</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Units</strong>: Align with CORDEX/CDS specifications (e.g., <code>pr</code> in <code>kg.m⁻².s⁻¹</code>, <code>tas</code> in <code>K</code>)</li>
+<li><strong>Temporal resolution</strong>: Variables are available at 3-hourly, daily, monthly, or seasonal frequencies, which in the CDS API are indicated as <code>3hr</code>, <code>daily_mean</code>, <code>monthly_mean</code>, <code>seasonal_mean</code>, respectively (non-European domains only include daily data).</li>
+<li><strong>Static variables</strong>: <code>sftlf</code> (land area fraction) and <code>orog</code> (topography) are time-independent</li>
+<li><strong>Standard Names</strong>: Standard naming following CF conventions can be found in <a href="https://is-enes-data.github.io/CORDEX_variables_requirement_table.pdf">CORDEX Variable Requirements Table</a></li>
+</ul>
+<p>For further details, see the <a href="https://confluence.ecmwf.int/display/CKB/CORDEX%3A+Regional+climate+projections">CORDEX Documentation</a>.</p>
+<h2 id="downloading-cordex-data">Downloading CORDEX data<a class="headerlink" href="#downloading-cordex-data" title="Permanent link">&para;</a></h2>
+<p>To download all the CORDEX data necessary to compute climatic indices and indicators useful to NATURE-DEMO, make sure to set up a Copernicus Climate Data Store (CDS) account as explained in the <a href="../#setup">main page</a>.
+Then run the following script:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/download_cordex_data.py
+</code></pre></div>
+<p>This will take a long time (~24h), since it will download a lot of data (~5TB).
+The data will be downloaded to the folder <code>~/data/cordex</code>.
+That path can be changed by modifying the <code>DATADIR</code> variable in the script.</p>
+<p>This download script uses the code in the module <code>clima_data.cordex</code>, which provides a convenient interface to the Copernicus Climate Data Store (CDS) API for downloading CORDEX data and is documented below.</p>
+<h2 id="code-documentation-clima_datacordex">Code documentation <code>clima_data.cordex</code><a class="headerlink" href="#code-documentation-clima_datacordex" title="Permanent link">&para;</a></h2>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="cordex"></a>
+    <div class="doc doc-contents first">
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="cordex.TIME_FRAMES" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">TIME_FRAMES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;his&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;historical&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1976</span><span class="p">,</span> <span class="mi">2005</span><span class="p">]},</span> <span class="s1">&#39;rcp&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;short&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">2040</span><span class="p">],</span> <span class="s1">&#39;medium&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2041</span><span class="p">,</span> <span class="mi">2070</span><span class="p">],</span> <span class="s1">&#39;long&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2071</span><span class="p">,</span> <span class="mi">2100</span><span class="p">]}}</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#cordex.TIME_FRAMES" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Time frames for EURO-CORDEX data</p>
+<p>Definition of the time frames used in analysing EURO-CORDEX data and computing climate indices
+and climate indicators.</p>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="cordex.CordexNames" class="doc doc-heading">
+            <code>CordexNames</code>
+
+
+<a href="#cordex.CordexNames" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Centralized registry for CORDEX climate model naming formats and conversions.</p>
+<p>Handles conversion between different naming conventions used by:
+- Input/keys: Short lowercase keys for easy use
+- ESGF: Used in ESGF table and GCM parts of downloaded filenames
+- CDS: Used in CDS API requests (lowercase with underscores)
+- Filenames: Used in downloaded filenames (hybrid format)</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>clima_data/cordex.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CordexNames</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Centralized registry for CORDEX climate model naming formats and conversions.</span>
+
+<span class="sd">    Handles conversion between different naming conventions used by:</span>
+<span class="sd">    - Input/keys: Short lowercase keys for easy use</span>
+<span class="sd">    - ESGF: Used in ESGF table and GCM parts of downloaded filenames</span>
+<span class="sd">    - CDS: Used in CDS API requests (lowercase with underscores)</span>
+<span class="sd">    - Filenames: Used in downloaded filenames (hybrid format)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># EURO-CORDEX coordinate system parameters</span>
+    <span class="n">CORDEX_CRS</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">RotatedPole</span><span class="p">(</span><span class="n">pole_latitude</span><span class="o">=</span><span class="mf">39.25</span><span class="p">,</span> <span class="n">pole_longitude</span><span class="o">=-</span><span class="mi">162</span><span class="p">)</span>
+    <span class="n">WGS84_TO_CORDEX_TRANS</span> <span class="o">=</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">Transformer</span><span class="o">.</span><span class="n">from_crs</span><span class="p">(</span><span class="s2">&quot;epsg:4326&quot;</span><span class="p">,</span> <span class="n">CORDEX_CRS</span><span class="p">)</span>
+
+    <span class="c1"># Global Climate Models - mapping from short keys to various formats</span>
+    <span class="n">GCMS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;ichec&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;ICHEC-EC-EARTH&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;ICHEC-EC-EARTH&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;ichec_ec_earth&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;mpi&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;MPI-M-MPI-ESM-LR&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;MPI-M-MPI-ESM-LR&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;mpi_m_mpi_esm_lr&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;cnrm&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;CNRM-CERFACS-CM5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;CNRM-CERFACS-CNRM-CM5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;cnrm_cerfacs_cm5&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;hadgem&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;MOHC-HadGEM2-ES&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;MOHC-HadGEM2-ES&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;mohc_hadgem2_es&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Regional Climate Models - mapping from short keys to various formats</span>
+    <span class="n">RCMS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;racmo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;KNMI-RACMO22E&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;RACMO22E&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;knmi_racmo22e&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rca4&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;SMHI-RCA4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;RCA4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;smhi_rca4&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;remo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;GERICS-REMO2015&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;REMO2015&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;gerics_remo2015&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;cosmo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;CLMcom-ETH-COSMO-crCLIM&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;COSMO-crCLIM-v1-1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;clmcom_eth_cosmo_crclim&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Variables - mapping from input names to various formats</span>
+    <span class="n">VARIABLES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;tas&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;tas&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;tas&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;2m_air_temperature&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;sfcWind&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;sfcWind&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;sfcWind&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;10m_wind_speed&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;tasmax&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmax&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;maximum_2m_temperature_in_the_last_24_hours&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;tasmin&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmin&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;tasmin&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;minimum_2m_temperature_in_the_last_24_hours&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;pr&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;pr&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;pr&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;mean_precipitation_flux&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;uas&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;uas&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;uas&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;10m_u_component_of_the_wind&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;vas&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;vas&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;vas&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;10m_v_component_of_the_wind&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;ta200&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;ta200&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;ta200&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;200hpa_temperature&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;ua200&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;ua200&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;ua200&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;200hpa_u_component_of_the_wind&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;va200&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;va200&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;va200&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;200hpa_v_component_of_the_wind&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;hurs&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;hurs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;hurs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;2m_relative_humidity&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;huss&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;huss&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;huss&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;2m_surface_specific_humidity&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;zg500&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;zg500&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;zg500&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;500hpa_geopotential_height&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;ua850&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;ua850&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;ua850&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;850hpa_u_component_of_the_wind&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;va850&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;va850&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;va850&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;850hpa_v_component_of_the_wind&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;evspsbl&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;evspsbl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;evspsbl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;evaporation&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;sftlf&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;sftlf&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;sftlf&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;land_area_fraction&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;psl&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;psl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;psl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;mean_sea_level_pressure&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;orog&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;orog&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;orog&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;orography&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;ps&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;ps&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;ps&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;surface_pressure&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rsds&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;rsds&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;rsds&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;surface_solar_radiation_downwards&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rlds&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;rlds&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;rlds&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;surface_thermal_radiation_downward&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rsus&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;rsus&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;rsus&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;surface_upwelling_shortwave_radiation&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;clt&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;clt&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;clt&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;total_cloud_cover&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;mrro&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;mrro&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;mrro&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;total_run_off_flux&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Frequencies - mapping from input names to various formats</span>
+    <span class="n">FREQUENCIES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;3hr&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;3hr&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;3hr&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;3_hours&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;6hr&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;6hr&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;6hr&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;6_hours&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;daily_mean&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;mon&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;mon&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;mon&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_mean&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;sea&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;sea&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;sea&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;seasonal_mean&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Experiments - mapping from input names to various formats</span>
+    <span class="n">EXPERIMENTS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;historical&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rcp25&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp25&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp25&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp_2_5&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rcp45&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp45&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp45&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp_4_5&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rcp85&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp85&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;esgf&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp85&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cds&quot;</span><span class="p">:</span> <span class="s2">&quot;rcp_8_5&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_gcm_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get GCM name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">GCMS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">key</span>
+        <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">GCMS</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">key</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">GCMS</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_rcm_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get RCM name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">RCMS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">key</span>
+        <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">RCMS</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">key</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">RCMS</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_variable_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get variable name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">VARIABLES</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">VARIABLES</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">name</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">VARIABLES</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_frequency_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get frequency name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">name</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_experiment_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get experiment name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">name</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_filename_gcm</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get GCM name as it appears in downloaded filenames (ESGF format).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_gcm_name</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;esgf&quot;</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_filename_rcm</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get RCM name as it appears in downloaded filenames (input format).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_rcm_name</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;input&quot;</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_gcms</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get list of all supported GCM keys.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">GCMS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_rcms</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get list of all supported RCM keys.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">RCMS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_variables</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get list of all supported variable names.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">VARIABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_frequencies</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get list of all supported frequency names.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_experiments</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get list of all supported experiment names.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.get_experiment_name" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_experiment_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.get_experiment_name" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get experiment name in specified format. Returns input if no match found.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_experiment_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get experiment name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span>
+    <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">name</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.get_filename_gcm" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_filename_gcm</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.get_filename_gcm" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get GCM name as it appears in downloaded filenames (ESGF format).</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_filename_gcm</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get GCM name as it appears in downloaded filenames (ESGF format).&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_gcm_name</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;esgf&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.get_filename_rcm" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_filename_rcm</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.get_filename_rcm" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get RCM name as it appears in downloaded filenames (input format).</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_filename_rcm</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get RCM name as it appears in downloaded filenames (input format).&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_rcm_name</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;input&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.get_frequency_name" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_frequency_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.get_frequency_name" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get frequency name in specified format. Returns input if no match found.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_frequency_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get frequency name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span>
+    <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">name</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.get_gcm_name" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_gcm_name</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.get_gcm_name" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get GCM name in specified format. Returns input if no match found.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_gcm_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get GCM name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">GCMS</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">key</span>
+    <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">GCMS</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">key</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">GCMS</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.get_rcm_name" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_rcm_name</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.get_rcm_name" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get RCM name in specified format. Returns input if no match found.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_rcm_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get RCM name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">RCMS</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">key</span>
+    <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">RCMS</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">key</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">RCMS</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.get_variable_name" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_variable_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.get_variable_name" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get variable name in specified format. Returns input if no match found.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_variable_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get variable name in specified format. Returns input if no match found.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">VARIABLES</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span>
+    <span class="k">if</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">VARIABLES</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">name</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">VARIABLES</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="nb">format</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.list_experiments" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">list_experiments</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.list_experiments" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get list of all supported experiment names.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_experiments</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get list of all supported experiment names.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.list_frequencies" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">list_frequencies</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.list_frequencies" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get list of all supported frequency names.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_frequencies</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get list of all supported frequency names.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.list_gcms" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">list_gcms</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.list_gcms" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get list of all supported GCM keys.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_gcms</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get list of all supported GCM keys.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">GCMS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.list_rcms" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">list_rcms</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.list_rcms" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get list of all supported RCM keys.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_rcms</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get list of all supported RCM keys.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">RCMS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="cordex.CordexNames.list_variables" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">list_variables</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#cordex.CordexNames.list_variables" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get list of all supported variable names.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_variables</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get list of all supported variable names.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">VARIABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="cordex.cordex_data_check" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cordex_data_check</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span></code>
+
+<a href="#cordex.cordex_data_check" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Lightweight quality check for CDS CORDEX data</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">796</span>
+<span class="normal">797</span>
+<span class="normal">798</span>
+<span class="normal">799</span>
+<span class="normal">800</span>
+<span class="normal">801</span>
+<span class="normal">802</span>
+<span class="normal">803</span>
+<span class="normal">804</span>
+<span class="normal">805</span>
+<span class="normal">806</span>
+<span class="normal">807</span>
+<span class="normal">808</span>
+<span class="normal">809</span>
+<span class="normal">810</span>
+<span class="normal">811</span>
+<span class="normal">812</span>
+<span class="normal">813</span>
+<span class="normal">814</span>
+<span class="normal">815</span>
+<span class="normal">816</span>
+<span class="normal">817</span>
+<span class="normal">818</span>
+<span class="normal">819</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cordex_data_check</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Lightweight quality check for CDS CORDEX data&quot;&quot;&quot;</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+
+    <span class="c1"># Quick data content checks (since metadata is already validated by CDS)</span>
+    <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="c1"># Check for obvious data issues</span>
+        <span class="k">if</span> <span class="n">var</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="s2">: All values are NaN&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Use xclim for variable-specific checks</span>
+        <span class="n">flags</span> <span class="o">=</span> <span class="n">data_flags</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">ds</span><span class="o">=</span><span class="n">ds</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">flags</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># flags is a Dataset with boolean scalar values for each check</span>
+            <span class="n">failed_checks</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">check_name</span><span class="p">,</span> <span class="n">check_result</span> <span class="ow">in</span> <span class="n">flags</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">check_result</span><span class="o">.</span><span class="n">item</span><span class="p">():</span>  <span class="c1"># .item() extracts the boolean value</span>
+                    <span class="n">failed_checks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">check_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">failed_checks</span><span class="p">:</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="s2">: Failed checks - </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">failed_checks</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">issues</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="cordex.download_cordex" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">download_cordex</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">gcm_model</span><span class="p">,</span> <span class="n">rcm_model</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+<a href="#cordex.download_cordex" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Worker function handling CDS download and file processing</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">508</span>
+<span class="normal">509</span>
+<span class="normal">510</span>
+<span class="normal">511</span>
+<span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span>
+<span class="normal">515</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span>
+<span class="normal">536</span>
+<span class="normal">537</span>
+<span class="normal">538</span>
+<span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span>
+<span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span>
+<span class="normal">553</span>
+<span class="normal">554</span>
+<span class="normal">555</span>
+<span class="normal">556</span>
+<span class="normal">557</span>
+<span class="normal">558</span>
+<span class="normal">559</span>
+<span class="normal">560</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">download_cordex</span><span class="p">(</span>
+    <span class="n">variable</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">gcm_model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">rcm_model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">experiment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">freq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">year_start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">data_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Worker function handling CDS download and file processing&quot;&quot;&quot;</span>
+
+    <span class="c1"># Check that all parameters are valid</span>
+    <span class="k">assert</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">CordexNames</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Invalid experiment name: </span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Configure paths</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">get_filename</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">gcm_model</span><span class="p">,</span> <span class="n">rcm_model</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">)</span>
+    <span class="n">dir_path</span> <span class="o">=</span> <span class="n">get_dirpath</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
+    <span class="n">zip_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;X&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.zip&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Check if files already exist before downloading</span>
+    <span class="n">existing_files</span> <span class="o">=</span> <span class="n">_check_existing_files</span><span class="p">(</span>
+        <span class="n">dir_path</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">gcm_model</span><span class="p">,</span> <span class="n">rcm_model</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">existing_files</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Already exists: </span><span class="si">{</span><span class="n">existing_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">. SKIPPING.&quot;</span>
+
+    <span class="c1"># Create unique client instance per thread</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>  <span class="c1"># url and key are looked up in ~/.cdsapirc</span>
+
+    <span class="c1"># Build CDS API request</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">_build_cds_request</span><span class="p">(</span>
+        <span class="n">variable</span><span class="p">,</span> <span class="n">gcm_model</span><span class="p">,</span> <span class="n">rcm_model</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Requesting </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> with parameters: </span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+            <span class="s2">&quot;projections-cordex-domains-single-levels&quot;</span><span class="p">,</span>
+            <span class="n">request</span><span class="p">,</span>
+            <span class="n">zip_path</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Process downloaded files</span>
+        <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+            <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">zip_path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Success: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.nc&quot;</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Failed to download </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">!s}</span><span class="s2">&quot;</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="cordex.get_esgf_combinations_for_experiment" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_esgf_combinations_for_experiment</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#cordex.get_esgf_combinations_for_experiment" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get available combinations from ESGF for specific experiment with optional filtering</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>experiment</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Experiment ID (e.g., 'historical', 'rcp45', 'rcp85')</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>variable</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional variable name to filter by</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>frequency</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional frequency to filter by (e.g., 'day', 'mon')</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="set">set</span>[<span title="tuple">tuple</span>[<span title="str">str</span>, <span title="str">str</span>, <span title="str">str</span>, <span title="str">str</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Set of tuples containing (gcm, rcm, variable, frequency) for valid combinations</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">586</span>
+<span class="normal">587</span>
+<span class="normal">588</span>
+<span class="normal">589</span>
+<span class="normal">590</span>
+<span class="normal">591</span>
+<span class="normal">592</span>
+<span class="normal">593</span>
+<span class="normal">594</span>
+<span class="normal">595</span>
+<span class="normal">596</span>
+<span class="normal">597</span>
+<span class="normal">598</span>
+<span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span>
+<span class="normal">607</span>
+<span class="normal">608</span>
+<span class="normal">609</span>
+<span class="normal">610</span>
+<span class="normal">611</span>
+<span class="normal">612</span>
+<span class="normal">613</span>
+<span class="normal">614</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span>
+<span class="normal">633</span>
+<span class="normal">634</span>
+<span class="normal">635</span>
+<span class="normal">636</span>
+<span class="normal">637</span>
+<span class="normal">638</span>
+<span class="normal">639</span>
+<span class="normal">640</span>
+<span class="normal">641</span>
+<span class="normal">642</span>
+<span class="normal">643</span>
+<span class="normal">644</span>
+<span class="normal">645</span>
+<span class="normal">646</span>
+<span class="normal">647</span>
+<span class="normal">648</span>
+<span class="normal">649</span>
+<span class="normal">650</span>
+<span class="normal">651</span>
+<span class="normal">652</span>
+<span class="normal">653</span>
+<span class="normal">654</span>
+<span class="normal">655</span>
+<span class="normal">656</span>
+<span class="normal">657</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_esgf_combinations_for_experiment</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">variable</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">frequency</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get available combinations from ESGF for specific experiment with optional filtering</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        experiment: Experiment ID (e.g., &#39;historical&#39;, &#39;rcp45&#39;, &#39;rcp85&#39;)</span>
+<span class="sd">        variable: Optional variable name to filter by</span>
+<span class="sd">        frequency: Optional frequency to filter by (e.g., &#39;day&#39;, &#39;mon&#39;)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Set of tuples containing (gcm, rcm, variable, frequency) for valid combinations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Querying ESGF data for experiment: </span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">variable</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Filtering by variable: </span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">frequency</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Filtering by frequency: </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">_get_esgf_data</span><span class="p">()</span>
+
+        <span class="c1"># Filter by experiment</span>
+        <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;experiment_id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">experiment</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: No data found for experiment &#39;</span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">&#39; in ESGF table&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="c1"># Apply additional filters if provided</span>
+        <span class="k">if</span> <span class="n">variable</span><span class="p">:</span>
+            <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">variable</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Warning: No data found for variable &#39;</span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">&#39; in experiment &#39;</span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">frequency</span><span class="p">:</span>
+            <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">frequency</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Warning: No data found for frequency &#39;</span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s2">&#39; in experiment &#39;</span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="c1"># Extract unique combinations with all relevant parameters</span>
+        <span class="n">combinations</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">unique_combinations</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span>
+            <span class="p">[</span><span class="s2">&quot;driving_model_id&quot;</span><span class="p">,</span> <span class="s2">&quot;model_id&quot;</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="s2">&quot;frequency&quot;</span><span class="p">]</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">unique_combinations</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="n">gcm</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;driving_model_id&quot;</span><span class="p">]</span>
+            <span class="n">rcm</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;model_id&quot;</span><span class="p">]</span>
+            <span class="n">var</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">]</span>
+            <span class="n">freq</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;frequency&quot;</span><span class="p">]</span>
+            <span class="n">combinations</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">gcm</span><span class="p">,</span> <span class="n">rcm</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">freq</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">combinations</span><span class="p">)</span><span class="si">}</span><span class="s2"> unique combinations for </span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">combinations</span>
+
+    <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">EmptyDataError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: ESGF CSV file is empty or malformed&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ParserError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: Could not parse ESGF CSV file: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: Could not fetch ESGF data for </span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All tasks will be pruned - no combinations available&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="cordex.get_filename" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_filename</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">gcm_model</span><span class="p">,</span> <span class="n">rcm_model</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">)</span></code>
+
+<a href="#cordex.get_filename" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>File name for the downloaded data based on the parameters provided</p>
+<p>Return file name following the CDS API naming convention for CORDEX data explained
+at <a href="https://confluence.ecmwf.int/display/CKB/CORDEX%3A+Regional+climate+projections">https://confluence.ecmwf.int/display/CKB/CORDEX%3A+Regional+climate+projections</a>:</p>
+<p><code>&lt;variable&gt;_&lt;domain&gt;_&lt;driving-model&gt;_&lt;experiment&gt;_&lt;ensemble_member&gt;_&lt;rcm-model&gt;_&lt;rcm-run&gt;_&lt;time-frequency&gt;_&lt;temporal-range&gt;.nc</code></p>
+
+
+<details class="where" open>
+  <summary>Where</summary>
+  <ul>
+<li><variable> is a short variable name, e.g. “tas” for “temperature at the surface”</li>
+<li><domain> is "EUR-11" for EURO-CORDEX data</li>
+<li><driving-model> is the GCM model that produced the boundary conditions</li>
+<li><experiment> is the name of the experiment used to extract the boundary conditions (historical, rcp45, rcp85)</li>
+<li><ensemble-member> is the ensemble identifier in the form “r<X>i<Y>p<Z>”, X, Y and Z are integers</li>
+<li><rcm-model> is the name of the model that produced the data</li>
+<li><rcm-run> is the version run of the model in the form of "vX" where X is integer</li>
+<li><time-frequency> is the time series frequency (e.g., monthly, daily, seasonal)</li>
+<li>the <temporal-range> is in the form YYYYMM[DDHH]-YYYY[MMDDHH], where Y is year, M is the month, D is day and H is hour. Note that day and hour are optional (indicated by the square brackets) and are only used if needed by the frequency of the data. For example daily data from the 1st of January 1980 to the 31st of December 2010 would be written 19800101-20101231.</li>
+</ul>
+</details>
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_filename</span><span class="p">(</span>
+    <span class="n">variable</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">gcm_model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">rcm_model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">experiment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">freq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">year_start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;File name for the downloaded data based on the parameters provided</span>
+
+<span class="sd">    Return file name following the CDS API naming convention for CORDEX data explained</span>
+<span class="sd">    at &lt;https://confluence.ecmwf.int/display/CKB/CORDEX%3A+Regional+climate+projections&gt;:</span>
+
+<span class="sd">    `&lt;variable&gt;_&lt;domain&gt;_&lt;driving-model&gt;_&lt;experiment&gt;_&lt;ensemble_member&gt;_&lt;rcm-model&gt;_&lt;rcm-run&gt;_&lt;time-frequency&gt;_&lt;temporal-range&gt;.nc`</span>
+
+<span class="sd">    Where:</span>
+<span class="sd">        - &lt;variable&gt; is a short variable name, e.g. “tas” for “temperature at the surface”</span>
+<span class="sd">        - &lt;domain&gt; is &quot;EUR-11&quot; for EURO-CORDEX data</span>
+<span class="sd">        - &lt;driving-model&gt; is the GCM model that produced the boundary conditions</span>
+<span class="sd">        - &lt;experiment&gt; is the name of the experiment used to extract the boundary conditions (historical, rcp45, rcp85)</span>
+<span class="sd">        - &lt;ensemble-member&gt; is the ensemble identifier in the form “r&lt;X&gt;i&lt;Y&gt;p&lt;Z&gt;”, X, Y and Z are integers</span>
+<span class="sd">        - &lt;rcm-model&gt; is the name of the model that produced the data</span>
+<span class="sd">        - &lt;rcm-run&gt; is the version run of the model in the form of &quot;vX&quot; where X is integer</span>
+<span class="sd">        - &lt;time-frequency&gt; is the time series frequency (e.g., monthly, daily, seasonal)</span>
+<span class="sd">        - the &lt;temporal-range&gt; is in the form YYYYMM[DDHH]-YYYY[MMDDHH], where Y is year, M is the month, D is day and H is hour. Note that day and hour are optional (indicated by the square brackets) and are only used if needed by the frequency of the data. For example daily data from the 1st of January 1980 to the 31st of December 2010 would be written 19800101-20101231.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">CordexNames</span><span class="o">.</span><span class="n">VARIABLES</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Invalid variable name: </span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;EUR-11&quot;</span>
+
+    <span class="c1"># Convert to ESGF format for filename (returns input if not found)</span>
+    <span class="k">if</span> <span class="n">gcm_model</span> <span class="o">!=</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+        <span class="n">gcm_model</span> <span class="o">=</span> <span class="n">CordexNames</span><span class="o">.</span><span class="n">get_gcm_name</span><span class="p">(</span><span class="n">gcm_model</span><span class="p">,</span> <span class="s2">&quot;esgf&quot;</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">CordexNames</span><span class="o">.</span><span class="n">EXPERIMENTS</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Invalid experiment name: </span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">ensemble</span> <span class="o">=</span> <span class="s2">&quot;r1i1p1&quot;</span>
+
+    <span class="k">if</span> <span class="n">rcm_model</span> <span class="o">!=</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+        <span class="n">rcm_model</span> <span class="o">=</span> <span class="n">CordexNames</span><span class="o">.</span><span class="n">get_rcm_name</span><span class="p">(</span><span class="n">rcm_model</span><span class="p">,</span> <span class="s2">&quot;input&quot;</span><span class="p">)</span>
+
+    <span class="n">rcm_run</span> <span class="o">=</span> <span class="s2">&quot;v*&quot;</span>
+
+    <span class="k">assert</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">CordexNames</span><span class="o">.</span><span class="n">FREQUENCIES</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Invalid frequency name: </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="n">freq</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;3hr&quot;</span><span class="p">,</span> <span class="s2">&quot;6hr&quot;</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">]:</span>
+        <span class="n">day_start</span><span class="p">,</span> <span class="n">day_end</span> <span class="o">=</span> <span class="s2">&quot;0101&quot;</span><span class="p">,</span> <span class="s2">&quot;1231&quot;</span>
+    <span class="k">elif</span> <span class="n">freq</span> <span class="o">==</span> <span class="s2">&quot;mon&quot;</span><span class="p">:</span>
+        <span class="n">day_start</span><span class="p">,</span> <span class="n">day_end</span> <span class="o">=</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;12&quot;</span>
+    <span class="k">elif</span> <span class="n">freq</span> <span class="o">==</span> <span class="s2">&quot;sea&quot;</span><span class="p">:</span>
+        <span class="n">day_start</span><span class="p">,</span> <span class="n">day_end</span> <span class="o">=</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span> <span class="s2">&quot;11&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid frequency: </span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">year_start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">year_start</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>  <span class="c1"># type: ignore[assignment]</span>
+    <span class="k">if</span> <span class="n">year_end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">year_end</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>  <span class="c1"># type: ignore[assignment]</span>
+
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">gcm_model</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ensemble</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">rcm_model</span><span class="si">}</span><span class="s2">*_</span><span class="si">{</span><span class="n">rcm_run</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">freq</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">year_start</span><span class="si">}{</span><span class="n">day_start</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">year_end</span><span class="si">}{</span><span class="n">day_end</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="cordex.get_files" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_files</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">year_start</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#cordex.get_files" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get file paths for the specified variable, experiment, frequency, and year range, for any given RCM model.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_files</span><span class="p">(</span>
+    <span class="n">data_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">variable</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">experiment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">freq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">year_start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get file paths for the specified variable, experiment, frequency, and year range, for any given RCM model.&quot;&quot;&quot;</span>
+    <span class="n">dir_path</span> <span class="o">=</span> <span class="n">get_dirpath</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">year_start</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">year_end</span> <span class="o">=</span> <span class="n">year_start</span> <span class="o">+</span> <span class="mi">4</span> <span class="k">if</span> <span class="n">freq</span> <span class="o">==</span> <span class="s2">&quot;day&quot;</span> <span class="k">else</span> <span class="n">year_start</span> <span class="o">+</span> <span class="mi">9</span>
+    <span class="k">elif</span> <span class="n">year_start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">year_end</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;year_start must be an integer or &#39;*&#39;&quot;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">get_filename</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">experiment</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">dir_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="cordex.prune_invalid_tasks" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">prune_invalid_tasks</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span></code>
+
+<a href="#cordex.prune_invalid_tasks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Prune tasks that are not available in ESGF.</p>
+<p>This function validates GCM-RCM combinations against ESGF availability
+for each experiment using the EURO-CORDEX ESGF table. Note that ESGF
+availability does not guarantee CDS API availability - some combinations
+may exist in ESGF but not be accessible through the CDS API.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>tasks</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of task dictionaries with keys: variable, gcm_model, rcm_model, experiment, freq, year_start, year_end</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of pruned tasks with only valid combinations according to ESGF</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>clima_data/cordex.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">660</span>
+<span class="normal">661</span>
+<span class="normal">662</span>
+<span class="normal">663</span>
+<span class="normal">664</span>
+<span class="normal">665</span>
+<span class="normal">666</span>
+<span class="normal">667</span>
+<span class="normal">668</span>
+<span class="normal">669</span>
+<span class="normal">670</span>
+<span class="normal">671</span>
+<span class="normal">672</span>
+<span class="normal">673</span>
+<span class="normal">674</span>
+<span class="normal">675</span>
+<span class="normal">676</span>
+<span class="normal">677</span>
+<span class="normal">678</span>
+<span class="normal">679</span>
+<span class="normal">680</span>
+<span class="normal">681</span>
+<span class="normal">682</span>
+<span class="normal">683</span>
+<span class="normal">684</span>
+<span class="normal">685</span>
+<span class="normal">686</span>
+<span class="normal">687</span>
+<span class="normal">688</span>
+<span class="normal">689</span>
+<span class="normal">690</span>
+<span class="normal">691</span>
+<span class="normal">692</span>
+<span class="normal">693</span>
+<span class="normal">694</span>
+<span class="normal">695</span>
+<span class="normal">696</span>
+<span class="normal">697</span>
+<span class="normal">698</span>
+<span class="normal">699</span>
+<span class="normal">700</span>
+<span class="normal">701</span>
+<span class="normal">702</span>
+<span class="normal">703</span>
+<span class="normal">704</span>
+<span class="normal">705</span>
+<span class="normal">706</span>
+<span class="normal">707</span>
+<span class="normal">708</span>
+<span class="normal">709</span>
+<span class="normal">710</span>
+<span class="normal">711</span>
+<span class="normal">712</span>
+<span class="normal">713</span>
+<span class="normal">714</span>
+<span class="normal">715</span>
+<span class="normal">716</span>
+<span class="normal">717</span>
+<span class="normal">718</span>
+<span class="normal">719</span>
+<span class="normal">720</span>
+<span class="normal">721</span>
+<span class="normal">722</span>
+<span class="normal">723</span>
+<span class="normal">724</span>
+<span class="normal">725</span>
+<span class="normal">726</span>
+<span class="normal">727</span>
+<span class="normal">728</span>
+<span class="normal">729</span>
+<span class="normal">730</span>
+<span class="normal">731</span>
+<span class="normal">732</span>
+<span class="normal">733</span>
+<span class="normal">734</span>
+<span class="normal">735</span>
+<span class="normal">736</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">prune_invalid_tasks</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prune tasks that are not available in ESGF.</span>
+
+<span class="sd">    This function validates GCM-RCM combinations against ESGF availability</span>
+<span class="sd">    for each experiment using the EURO-CORDEX ESGF table. Note that ESGF</span>
+<span class="sd">    availability does not guarantee CDS API availability - some combinations</span>
+<span class="sd">    may exist in ESGF but not be accessible through the CDS API.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tasks: List of task dictionaries with keys: variable, gcm_model, rcm_model, experiment, freq, year_start, year_end</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of pruned tasks with only valid combinations according to ESGF</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Group tasks by experiment, variable, and frequency for more efficient ESGF queries</span>
+    <span class="n">tasks_by_criteria</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+        <span class="c1"># Get ESGF frequency name (same as input for frequencies)</span>
+        <span class="n">esgf_freq</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">&quot;freq&quot;</span><span class="p">]</span>
+
+        <span class="n">criteria</span> <span class="o">=</span> <span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;experiment&quot;</span><span class="p">],</span> <span class="n">task</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">],</span> <span class="n">esgf_freq</span><span class="p">)</span>
+        <span class="n">tasks_by_criteria</span><span class="p">[</span><span class="n">criteria</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+
+    <span class="n">pruned_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">total_pruned</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">frequency</span><span class="p">),</span> <span class="n">exp_tasks</span> <span class="ow">in</span> <span class="n">tasks_by_criteria</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Processing </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">exp_tasks</span><span class="p">)</span><span class="si">}</span><span class="s2"> tasks for: </span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Get available combinations for this specific criteria set</span>
+        <span class="n">available_combinations</span> <span class="o">=</span> <span class="n">get_esgf_combinations_for_experiment</span><span class="p">(</span>
+            <span class="n">experiment</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">frequency</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">available_combinations</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No valid combinations found, skipping all </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">exp_tasks</span><span class="p">)</span><span class="si">}</span><span class="s2"> tasks&quot;</span><span class="p">)</span>
+            <span class="n">total_pruned</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">exp_tasks</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">exp_pruned</span><span class="p">,</span> <span class="n">exp_kept</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+        <span class="c1"># Track which combinations we&#39;re looking for vs what&#39;s available</span>
+        <span class="n">requested_combinations</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">exp_tasks</span><span class="p">:</span>
+            <span class="n">gcm_norm</span> <span class="o">=</span> <span class="n">CordexNames</span><span class="o">.</span><span class="n">get_gcm_name</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;gcm_model&quot;</span><span class="p">],</span> <span class="s2">&quot;esgf&quot;</span><span class="p">)</span>
+            <span class="n">rcm_norm</span> <span class="o">=</span> <span class="n">CordexNames</span><span class="o">.</span><span class="n">get_rcm_name</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;rcm_model&quot;</span><span class="p">],</span> <span class="s2">&quot;esgf&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Create tuple to match the enhanced function&#39;s return format</span>
+            <span class="n">requested_combo</span> <span class="o">=</span> <span class="p">(</span><span class="n">gcm_norm</span><span class="p">,</span> <span class="n">rcm_norm</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">frequency</span><span class="p">)</span>
+            <span class="n">requested_combinations</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">requested_combo</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">requested_combo</span> <span class="ow">in</span> <span class="n">available_combinations</span><span class="p">:</span>
+                <span class="n">pruned_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+                <span class="n">exp_kept</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">exp_pruned</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Requested </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">requested_combinations</span><span class="p">)</span><span class="si">}</span><span class="s2"> unique combinations&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Available </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">available_combinations</span><span class="p">)</span><span class="si">}</span><span class="s2"> combinations in ESGF&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Kept </span><span class="si">{</span><span class="n">exp_kept</span><span class="si">}</span><span class="s2"> tasks, pruned </span><span class="si">{</span><span class="n">exp_pruned</span><span class="si">}</span><span class="s2"> tasks&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Show which combinations were requested but not available</span>
+        <span class="n">missing_combinations</span> <span class="o">=</span> <span class="n">requested_combinations</span> <span class="o">-</span> <span class="n">available_combinations</span>
+        <span class="k">if</span> <span class="n">missing_combinations</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Missing combinations:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">combo</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">missing_combinations</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">combo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">combo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">combo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">combo</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+        <span class="n">total_pruned</span> <span class="o">+=</span> <span class="n">exp_pruned</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ESGF pruning removed </span><span class="si">{</span><span class="n">total_pruned</span><span class="si">}</span><span class="s2"> tasks not available in ESGF&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pruned_tasks</span><span class="p">)</span><span class="si">}</span><span class="s2"> valid tasks out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span><span class="si">}</span><span class="s2"> original tasks&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pruned_tasks</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><div class="footnote">
+<hr />
+<ol>
+<li id="fn:Diez-Sierra2022">
+<p>Diez-Sierra J, Iturbide M, Gutiérrez JM, et al (2022) The Worldwide C3S CORDEX Grand Ensemble: A Major Contribution to Assess Regional Climate Change in the IPCC AR6 Atlas. Bulletin of the American Meteorological Society 103:E2804--E2826. <a href="https://doi.org/10.1175/BAMS-D-22-0111.1">https://doi.org/10.1175/BAMS-D-22-0111.1</a>&#160;<a class="footnote-backref" href="#fnref:Diez-Sierra2022" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Jury2015">
+<p>Jury MW, Prein AF, Truhetz H, Gobiet A (2015) Evaluation of CMIP5 models in the context of dynamical downscaling over europe. Journal of Climate 28:5575--5582. <a href="https://doi.org/10.1175/JCLI-D-14-00430.1">https://doi.org/10.1175/JCLI-D-14-00430.1</a>&#160;<a class="footnote-backref" href="#fnref:Jury2015" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Kotlarski2015">
+<p>Kotlarski S, Lüthi D, Schär C (2015) The elevation dependency of 21st century european climate change: An RCM ensemble perspective. International Journal of Climatology 35:3902--3920. <a href="https://doi.org/10.1002/joc.4254">https://doi.org/10.1002/joc.4254</a>&#160;<a class="footnote-backref" href="#fnref:Kotlarski2015" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Coppola2021">
+<p>Coppola E, Stocchi P, Pichelli E, et al (2021) Non-hydrostatic RegCM4 (RegCM4-NH): Model description and case studies over multiple domains. Geoscientific Model Development 14:7705--7723. <a href="https://doi.org/10.5194/gmd-14-7705-2021">https://doi.org/10.5194/gmd-14-7705-2021</a>&#160;<a class="footnote-backref" href="#fnref:Coppola2021" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      NATURE-DEMO Project - EU Horizon Europe Grant Agreement No. 101157448
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.ibm.com/mrg/clima-data" target="_blank" rel="noopener" title="github.ibm.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.footnote.tooltips"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../javascripts/mathjax-config.js"></script>
+      
+    
+  </body>
+</html>
