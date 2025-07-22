@@ -1,0 +1,82 @@
+site_name: clima-data
+repo_url: https://github.ibm.com/mrg/clima-data
+site_url: https://mrg.github.io/clima-data
+site_description: Repo for NATURE-DEMO climatic indices
+site_author: Mattia Rigotti
+edit_uri: edit/main/docs/
+copyright: NATURE-DEMO Project - EU Horizon Europe Grant Agreement No. 101157448
+
+nav:
+  - Home: index.md
+  - CORDEX climate data: cordex.md
+  - Climatic indicators: indicators.md
+  - Bibliography: full_bib.md
+  - Acknowledgments: acknowledgments.md
+
+plugins:
+  - search
+  - table-reader
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["clima_data"]
+          options:
+            show_source: true
+            docstring_style: google
+            show_root_heading: false
+            show_submodules: true
+            show_signature: True
+            heading_level: 3
+
+  - bibtex:
+      bib_file: docs/references.bib
+      enable_inline_citations: true
+      csl_file: docs/springer-basic-author-date.csl
+
+theme:
+  name: material
+  logo: assets/NATURE-DEMO-logo.png
+  favicon: assets/NATURE-DEMO-logo.png
+  font:
+    text: Arial, sans-serif
+  features:
+    - content.footnote.tooltips
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/git-alt
+
+extra:
+  social:
+    - icon: fontawesome/brands/git-alt
+      link: https://github.ibm.com/mrg/clima-data
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/mathjax-config.js
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.caret
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite # Required for code in citations
+  - footnotes
+  - attr_list
+  - md_in_html # Handle mixed content
