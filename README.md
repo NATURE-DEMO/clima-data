@@ -3,6 +3,7 @@
 Repo for downloading CORDEX and process it into climatic indicators used in NATURE-DEMO project.
 
 - **Git repository**: <https://github.com/NATURE-DEMO/clima-data>
+- **Documentation**: <https://NATURE-DEMO.github.io/clima-data>
 
 ## Getting started with your project
 
