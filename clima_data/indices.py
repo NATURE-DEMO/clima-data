@@ -1,3 +1,5 @@
+import gc
+
 import xarray as xr
 import xclim.indicators.atmos as xa
 import xclim.indices as xi
@@ -449,19 +451,28 @@ def spei3_severe_prob(
     # Calculate water budget using xclim with MB05 method
     wb = xi.water_budget(pr=pr, tas=tas, method="MB05")
 
-    # Optimize chunking for SPEI: smaller spatial chunks but keep time intact
-    # SPEI needs full time series for distribution fitting
-    wb = wb.chunk({"time": -1, "x": 25, "y": 25, "realization": 1})
+    # Balanced chunking: avoid too many small tasks that overwhelm scheduler
+    # 30x30 spatial chunks = 900 grid points per chunk (reasonable size)
+    # Process 1 realization at a time for memory safety
+    wb = wb.chunk({"time": -1, "x": 30, "y": 30, "realization": 1})
+
+    # Force garbage collection before heavy computation
+    gc.collect()
 
     # Calculate SPEI-3 using xclim's built-in function
+    # The warning about rechunking is expected - xclim needs to redistribute data
     spei = xi.standardized_precipitation_evapotranspiration_index(wb=wb, freq="MS", window=window)
 
     # Calculate annual probability of severe drought
     severe_drought = spei <= severe_threshold
     annual_prob = severe_drought.resample(time="YS").mean(dim="time")
 
-    # Persist intermediate results to avoid recomputation
+    # Use persist() instead of compute() to keep it distributed but computed
     annual_prob = annual_prob.persist()
+
+    # Force cleanup of intermediate variables
+    del wb, spei, severe_drought
+    gc.collect()
 
     return annual_prob  # type: ignore[no-any-return]
 

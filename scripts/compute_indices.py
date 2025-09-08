@@ -29,20 +29,21 @@ FREQ = "day"
 #  SELECTED_INDICES = ["solidprcptot_winter", "solidprcptot_year"]  # Snow indices only
 #  SELECTED_INDICES = ["rx1day", "cdd", "cwd"]  # Precipitation extremes only
 #  SELECTED_INDICES = ["tg_mean_year", "tx_mean_year", "tn_mean_year"]  # Temperature means only
+# SELECTED_INDICES = ["spei3_severe_prob"]
 SELECTED_INDICES = None
 
 # Dask configuration
 DASK_CONFIG = {
     "n_workers": 32,
-    "threads_per_worker": 4,
-    "memory_limit": "16GB",
+    "threads_per_worker": 1,
+    "memory_limit": "10GB",  # request 320GB for 32 workers
 }
 
 CHUNK_CONFIG = {
-    "time": 2000,
-    "x": 200,
-    "y": 200,
-    "realization": 4,
+    "time": 1000,  # Smaller time chunks for better memory management
+    "x": 100,  # Smaller spatial chunks to reduce memory per task
+    "y": 100,  # Smaller spatial chunks to reduce memory per task
+    "realization": 2,  # Fewer realizations per chunk for memory efficiency
 }
 
 
@@ -102,7 +103,12 @@ def get_indicator_functions() -> dict[frozenset, list[tuple[str, Callable]]]:
 
 
 def load_and_process_ensemble(
-    variables: list[str], exp: str, year_start: int, year_end: int, cordex_path: str = CORDEX_PATH
+    variables: list[str],
+    exp: str,
+    year_start: int,
+    year_end: int,
+    indicators: list[tuple[str, Callable]] = None,
+    cordex_path: str = CORDEX_PATH,
 ) -> xr.Dataset:
     """Load ensemble data for multiple variables and time period with guaranteed realization alignment."""
     # Get file groups that exist for ALL variables with consistent model ordering
@@ -122,6 +128,17 @@ def load_and_process_ensemble(
 
     chunk_config = CHUNK_CONFIG.copy()
     chunk_config["realization"] = max(chunk_config["realization"] // len(variables), 1)
+
+    # For memory-intensive indices like SPEI, use even smaller chunks
+    if indicators:
+        memory_intensive_indices = ["spei3_severe_prob"]
+        current_indices = [name for name, _ in indicators]
+
+        if any(idx in memory_intensive_indices for idx in current_indices):
+            chunk_config["x"] = 75  # Reasonable chunk size - not too small
+            chunk_config["y"] = 75  # Reasonable chunk size - not too small
+            chunk_config["realization"] = 1  # Process one realization at a time
+            print(f"Using balanced chunks for memory-intensive indices: {chunk_config}")
 
     # Load ensemble data for each variable using aligned file groups
     data_arrays = []
@@ -210,7 +227,9 @@ def main() -> None:
                     print(
                         f"\nLoading data for variables: [{variables_str}], experiment: {exp}, time frame: {time_frame}"
                     )
-                    ensemble_data = load_and_process_ensemble(variables, exp, year_start, year_end)
+                    ensemble_data = load_and_process_ensemble(
+                        variables, exp, year_start, year_end, indicators
+                    )
                     process_indicators(
                         ensemble_data, variables, indicators, label, overwrite=OVERWRITE
                     )
