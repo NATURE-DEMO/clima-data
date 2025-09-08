@@ -1,6 +1,7 @@
 import numpy as np
 import xarray as xr
 import xclim.indicators.atmos as xa
+import xclim.indices as xi
 from xclim.indices.stats import frequency_analysis
 
 ## Precipitation climatic indices
@@ -447,7 +448,7 @@ def spei3_severe_prob(
         without the smoothing effects of longer timescales.
     """
     # Calculate water budget using xclim with MB05 method
-    wb = xa.water_budget(pr=pr, tas=tas, method="MB05")
+    wb = xi.water_budget(pr=pr, tas=tas, method="MB05")
 
     # Calculate SPEI-3 using xclim's built-in function
     spei = xa.standardized_precipitation_evapotranspiration_index(
