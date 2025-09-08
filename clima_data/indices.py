@@ -446,22 +446,33 @@ def spei3_severe_prob(
         drought assessment, capturing soil moisture conditions and seasonal water balance
         without the smoothing effects of longer timescales.
     """
+    import gc
+
     # Calculate water budget using xclim with MB05 method
     wb = xi.water_budget(pr=pr, tas=tas, method="MB05")
 
-    # Optimize chunking for SPEI: smaller spatial chunks but keep time intact
-    # SPEI needs full time series for distribution fitting
-    wb = wb.chunk({"time": -1, "x": 25, "y": 25, "realization": 1})
+    # Optimized chunking: balance memory usage vs parallelism
+    # 15x15 spatial chunks = 225 grid points per chunk
+    # Process 2 realizations at a time for better memory/compute balance
+    wb = wb.chunk({"time": -1, "x": 15, "y": 15, "realization": 2})
+
+    # Force garbage collection before heavy computation
+    gc.collect()
 
     # Calculate SPEI-3 using xclim's built-in function
+    # The warning about rechunking is expected - xclim needs to redistribute data
     spei = xi.standardized_precipitation_evapotranspiration_index(wb=wb, freq="MS", window=window)
 
     # Calculate annual probability of severe drought
     severe_drought = spei <= severe_threshold
     annual_prob = severe_drought.resample(time="YS").mean(dim="time")
 
-    # Persist intermediate results to avoid recomputation
+    # Use persist() instead of compute() to keep it distributed but computed
     annual_prob = annual_prob.persist()
+
+    # Force cleanup of intermediate variables
+    del wb, spei, severe_drought
+    gc.collect()
 
     return annual_prob  # type: ignore[no-any-return]
 
