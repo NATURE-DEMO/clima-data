@@ -9,6 +9,18 @@ import xarray as xr
 
 from clima_data.cordex import get_files
 
+# Recognized climate variable names for automatic detection in function signatures
+RECOGNIZED_CLIMATE_VARIABLES = {
+    "pr",        # precipitation
+    "tas",       # near-surface air temperature
+    "tasmin",    # daily minimum near-surface air temperature
+    "tasmax",    # daily maximum near-surface air temperature
+    "hurs",      # near-surface relative humidity
+    "sfcWind",   # near-surface wind speed
+    "ps",        # surface air pressure
+    "rsds",      # surface downwelling shortwave radiation
+}
+
 
 def get_cds_key() -> str:
     key = os.getenv("CDS_KEY")
@@ -323,7 +335,7 @@ def get_required_variables(func: Callable) -> set[str]:
         if param.default is not inspect.Parameter.empty:
             continue
         # Add known climate variables
-        if param_name in ["pr", "tas", "tasmin", "tasmax", "hurs", "sfcWind", "ps"]:
+        if param_name in RECOGNIZED_CLIMATE_VARIABLES:
             variables.add(param_name)
 
     return variables
