@@ -449,12 +449,21 @@ def spei3_severe_prob(
     # Calculate water budget using xclim with MB05 method
     wb = xi.water_budget(pr=pr, tas=tas, method="MB05")
 
+    # Optimize chunking for SPEI: smaller spatial chunks but keep time intact
+    # SPEI needs full time series for distribution fitting
+    wb = wb.chunk({"time": -1, "x": 25, "y": 25, "realization": 1})
+
     # Calculate SPEI-3 using xclim's built-in function
     spei = xi.standardized_precipitation_evapotranspiration_index(wb=wb, freq="MS", window=window)
 
     # Calculate annual probability of severe drought
     severe_drought = spei <= severe_threshold
-    return severe_drought.resample(time="YS").mean(dim="time")  # type: ignore[no-any-return]
+    annual_prob = severe_drought.resample(time="YS").mean(dim="time")
+
+    # Persist intermediate results to avoid recomputation
+    annual_prob = annual_prob.persist()
+
+    return annual_prob  # type: ignore[no-any-return]
 
 
 def par_plant_level(rsds: xr.DataArray, par_fraction: float = 0.45) -> xr.DataArray:
