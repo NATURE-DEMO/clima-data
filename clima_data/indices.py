@@ -483,6 +483,12 @@ def par_plant_level(rsds: xr.DataArray, par_fraction: float = 0.45) -> xr.DataAr
     Calculate photosynthetically active radiation (PAR) at plant level,
     assuming full sunlight conditions without canopy shading effects.
 
+    The conversion uses two established constants:
+    - PAR fraction of 0.45: Approximately 45% of solar radiation falls within the
+      photosynthetically active range (400-700 nm), as established by Moon (1940)
+    - Conversion factor of 4.57 μmol/J: Standard factor established by McCree (1972)
+      to convert energy-based irradiance (W/m²) to photon flux density (μmol/m²/s)
+
     | Metadata      | Value                                         |
     |-------------- |-----------------------------------------------|
     | Identifier    | par_plant_level                               |
@@ -496,6 +502,13 @@ def par_plant_level(rsds: xr.DataArray, par_fraction: float = 0.45) -> xr.DataAr
 
     Returns:
         xarray.DataArray: Annual mean PAR at plant level in μmol/m²/s.
+
+    References:
+        Moon, P. (1940). Proposed standard solar-radiation curves for engineering use.
+        Journal of the Franklin Institute, 230(5), 583-617.
+
+        McCree, K. J. (1972). The action spectrum, absorptance and quantum yield of
+        photosynthesis in crop plants. Agricultural Meteorology, 9, 191-216.
     """
     # Convert solar radiation to PAR
     # Conversion factor: W/m² to μmol/m²/s for PAR
