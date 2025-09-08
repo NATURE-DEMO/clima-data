@@ -453,10 +453,10 @@ def spei3_severe_prob(
     # Calculate water budget using xclim with MB05 method
     wb = xi.water_budget(pr=pr, tas=tas, method="MB05")
 
-    # Balanced chunking: avoid too many small tasks that overwhelm scheduler
-    # 30x30 spatial chunks = 900 grid points per chunk (reasonable size)
-    # Process 1 realization at a time for memory safety
-    wb = wb.chunk({"time": -1, "x": 30, "y": 30, "realization": 1})
+    # Optimized chunking for SPEI: realizations are independent, can process more together
+    # 30x30 spatial chunks = 900 grid points per chunk
+    # Process 4 realizations together since SPEI computation is independent across realizations
+    wb = wb.chunk({"time": -1, "x": 30, "y": 30, "realization": 4})
 
     # Force garbage collection before heavy computation
     gc.collect()

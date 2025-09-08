@@ -29,8 +29,8 @@ FREQ = "day"
 #  SELECTED_INDICES = ["solidprcptot_winter", "solidprcptot_year"]  # Snow indices only
 #  SELECTED_INDICES = ["rx1day", "cdd", "cwd"]  # Precipitation extremes only
 #  SELECTED_INDICES = ["tg_mean_year", "tx_mean_year", "tn_mean_year"]  # Temperature means only
-# SELECTED_INDICES = ["spei3_severe_prob"]
-SELECTED_INDICES = None
+SELECTED_INDICES = ["par_plant_level", "spei3_severe_prob"]
+# SELECTED_INDICES = None
 
 # Dask configuration
 DASK_CONFIG = {
