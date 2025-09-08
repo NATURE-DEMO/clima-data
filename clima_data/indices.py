@@ -1,4 +1,3 @@
-import numpy as np
 import xarray as xr
 import xclim.indicators.atmos as xa
 import xclim.indices as xi
@@ -25,7 +24,7 @@ def prcptot_year(pr: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Total yearly accumulated precipitation.
     """
-    return xa.precip_accumulation(pr=pr, freq="YS")  # type: ignore
+    return xa.precip_accumulation(pr=pr, freq="YS")  # type: ignore[no-any-return]
 
 
 def rx1day(pr: xr.DataArray) -> xr.DataArray:
@@ -46,7 +45,7 @@ def rx1day(pr: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Maximum 1-day precipitation amount.
     """
-    return xa.max_1day_precipitation_amount(pr, freq="YS")  # type: ignore
+    return xa.max_1day_precipitation_amount(pr, freq="YS")  # type: ignore[no-any-return]
 
 
 def rx5day(pr: xr.DataArray) -> xr.DataArray:
@@ -67,7 +66,7 @@ def rx5day(pr: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Maximum 5-day precipitation amount.
     """
-    return xa.max_n_day_precipitation_amount(pr, window=5, freq="YS")  # type: ignore
+    return xa.max_n_day_precipitation_amount(pr, window=5, freq="YS")  # type: ignore[no-any-return]
 
 
 def rx1day_rp(pr: xr.DataArray) -> xr.DataArray:
@@ -96,11 +95,11 @@ def rx1day_rp(pr: xr.DataArray) -> xr.DataArray:
         freq="YS",
         method="ML",
     )
-    return results  # type: ignore
+    return results  # type: ignore[no-any-return]
 
 
 def rx5day_rp(pr: xr.DataArray) -> xr.DataArray:
-    """**100-year return level of rx1day**
+    """**100-year return level of rx5day**
 
     Return level of maximum 5-day precipitation for periods of 2 to 100 years.
 
@@ -108,7 +107,7 @@ def rx5day_rp(pr: xr.DataArray) -> xr.DataArray:
     |-------------- |---------------------------------------------------------|
     | Identifier    | rx5day_rp                                               |
     | Units         | mm day-1                                                |
-    | Standard Name | maximum_1_day_precipitation_amount_X_year_return_period |
+    | Standard Name | maximum_5_day_precipitation_amount_X_year_return_period |
 
     Args:
         pr: Precipitation (as an xarray DataArray).
@@ -125,7 +124,7 @@ def rx5day_rp(pr: xr.DataArray) -> xr.DataArray:
         freq="YS",
         method="ML",
     )
-    return results  # type: ignore
+    return results  # type: ignore[no-any-return]
 
 
 def cwd(pr: xr.DataArray) -> xr.DataArray:
@@ -146,7 +145,7 @@ def cwd(pr: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Maximum consecutive wet days.
     """
-    return xa.maximum_consecutive_wet_days(pr, thresh="1 mm/day", freq="YS")  # type: ignore
+    return xa.maximum_consecutive_wet_days(pr, thresh="1 mm/day", freq="YS")  # type: ignore[no-any-return]
 
 
 def cdd(pr: xr.DataArray) -> xr.DataArray:
@@ -167,7 +166,7 @@ def cdd(pr: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Maximum consecutive dry days.
     """
-    return xa.maximum_consecutive_dry_days(pr, thresh="1 mm/day", freq="YS")  # type: ignore
+    return xa.maximum_consecutive_dry_days(pr, thresh="1 mm/day", freq="YS")  # type: ignore[no-any-return]
 
 
 """Temperature climatic indices"""
@@ -191,7 +190,7 @@ def tg_year(tas: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Annual mean temperature.
     """
-    return xa.tg_mean(tas=tas, freq="YS")  # type: ignore
+    return xa.tg_mean(tas=tas, freq="YS")  # type: ignore[no-any-return]
 
 
 def tn_year(tasmin: xr.DataArray) -> xr.DataArray:
@@ -212,7 +211,7 @@ def tn_year(tasmin: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Annual mean minimum temperature.
     """
-    return xa.tn_mean(tasmin=tasmin, freq="YS")  # type: ignore
+    return xa.tn_mean(tasmin=tasmin, freq="YS")  # type: ignore[no-any-return]
 
 
 def tx_year(tasmax: xr.DataArray) -> xr.DataArray:
@@ -233,7 +232,7 @@ def tx_year(tasmax: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Annual mean maximum temperature.
     """
-    return xa.tx_mean(tasmax=tasmax, freq="YS")  # type: ignore
+    return xa.tx_mean(tasmax=tasmax, freq="YS")  # type: ignore[no-any-return]
 
 
 def tx40(tasmax: xr.DataArray) -> xr.DataArray:
@@ -245,7 +244,7 @@ def tx40(tasmax: xr.DataArray) -> xr.DataArray:
     |-------------- |-----------------------------------------------|
     | Identifier    | tx40                                          |
     | Units         | days                                          |
-    | Frequenc y    | YS                                            |
+    | Frequency     | YS                                            |
     | Standard Name | number_of_days_with_air_temperature_above_threshold |
 
     Args:
@@ -254,7 +253,7 @@ def tx40(tasmax: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Number of days per year with max temp > 40°C.
     """
-    return xa.tx_days_above(tasmax, thresh="40.0 degC", freq="YS")  # type: ignore
+    return xa.tx_days_above(tasmax, thresh="40.0 degC", freq="YS")  # type: ignore[no-any-return]
 
 
 def tn20(tasmin: xr.DataArray) -> xr.DataArray:
@@ -275,7 +274,7 @@ def tn20(tasmin: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Number of days per year with min temp < -20°C.
     """
-    return xa.tn_days_below(tasmin, thresh="-20.0 degC", freq="YS")  # type: ignore
+    return xa.tn_days_below(tasmin, thresh="-20.0 degC", freq="YS")  # type: ignore[no-any-return]
 
 
 """Snow climatic indices"""
@@ -300,7 +299,7 @@ def solidprcptot_winter(pr: xr.DataArray, tas: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Accumulated solid precipitation during winter months.
     """
-    return xa.solid_precip_accumulation(pr=pr, tas=tas, thresh="0 degC", freq="QS-DEC")  # type: ignore
+    return xa.solid_precip_accumulation(pr=pr, tas=tas, thresh="0 degC", freq="QS-DEC")  # type: ignore[no-any-return]
 
 
 def solidprcptot_year(pr: xr.DataArray, tas: xr.DataArray) -> xr.DataArray:
@@ -322,7 +321,7 @@ def solidprcptot_year(pr: xr.DataArray, tas: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Annual accumulated solid precipitation.
     """
-    return xa.solid_precip_accumulation(pr=pr, tas=tas, thresh="0 degC", freq="YS")  # type: ignore
+    return xa.solid_precip_accumulation(pr=pr, tas=tas, thresh="0 degC", freq="YS")  # type: ignore[no-any-return]
 
 
 """Humidity climatic indices"""
@@ -369,7 +368,7 @@ def hi35(tas: xr.DataArray, hurs: xr.DataArray) -> xr.DataArray:
         xarray.DataArray: Number of days with heat index > 35°C.
     """
     hi = xa.heat_index(tas=tas, hurs=hurs)
-    return (hi > 35).resample(time="YS").sum(dim="time")  # type: ignore
+    return (hi > 35).resample(time="YS").sum(dim="time")  # type: ignore[no-any-return]
 
 
 def vpd(tas: xr.DataArray, hurs: xr.DataArray) -> xr.DataArray:
@@ -391,7 +390,7 @@ def vpd(tas: xr.DataArray, hurs: xr.DataArray) -> xr.DataArray:
     Returns:
         xarray.DataArray: Vapor pressure deficit.
     """
-    return xa.vapor_pressure_deficit(tas=tas, hurs=hurs).resample(time="YS").mean()  # type: ignore
+    return xa.vapor_pressure_deficit(tas=tas, hurs=hurs).resample(time="YS").mean()  # type: ignore[no-any-return]
 
 
 def hurs40_days(hurs: xr.DataArray) -> xr.DataArray:
@@ -457,7 +456,7 @@ def spei3_severe_prob(
 
     # Calculate annual probability of severe drought
     severe_drought = spei <= severe_threshold
-    return severe_drought.resample(time="YS").mean(dim="time")
+    return severe_drought.resample(time="YS").mean(dim="time")  # type: ignore[no-any-return]
 
 
 def par_plant_level(rsds: xr.DataArray, par_fraction: float = 0.45) -> xr.DataArray:
