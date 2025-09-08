@@ -448,6 +448,8 @@ def spei3_severe_prob(
         drought assessment, capturing soil moisture conditions and seasonal water balance
         without the smoothing effects of longer timescales.
     """
+    import gc
+
     # Calculate water budget using xclim with MB05 method
     wb = xi.water_budget(pr=pr, tas=tas, method="MB05")
 
