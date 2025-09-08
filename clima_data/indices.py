@@ -1,3 +1,4 @@
+import numpy as np
 import xarray as xr
 import xclim.indicators.atmos as xa
 from xclim.indices.stats import frequency_analysis
@@ -390,3 +391,97 @@ def vpd(tas: xr.DataArray, hurs: xr.DataArray) -> xr.DataArray:
         xarray.DataArray: Vapor pressure deficit.
     """
     return xa.vapor_pressure_deficit(tas=tas, hurs=hurs).resample(time="YS").mean()  # type: ignore
+
+
+def hurs40_days(hurs: xr.DataArray) -> xr.DataArray:
+    """**Annual days with relative humidity under 40%**
+
+    Number of days per year with daily relative humidity below 40%.
+    Low humidity conditions can cause stress for both humans and plants.
+
+    | Metadata      | Value                                         |
+    |-------------- |-----------------------------------------------|
+    | Identifier    | hurs40_days                                   |
+    | Units         | days                                          |
+    | Frequency     | YS                                            |
+    | Standard Name | number_of_days_with_relative_humidity_below_threshold |
+
+    Args:
+        hurs: Relative humidity (as an xarray DataArray in %).
+
+    Returns:
+        xarray.DataArray: Number of days per year with RH < 40%.
+    """
+    return (hurs < 40).resample(time="YS").sum(dim="time")
+
+
+def spei3_severe_prob(
+    pr: xr.DataArray, tas: xr.DataArray, window: int = 3, severe_threshold: float = -1.5
+) -> xr.DataArray:
+    """**Annual probability of experiencing severe agricultural drought (SPEI-3)**
+
+    Calculate the annual probability of experiencing severe drought conditions
+    based on the 3-month Standardized Precipitation Evapotranspiration Index (SPEI-3).
+    SPEI-3 is specifically designed for agricultural drought monitoring and captures
+    seasonal water-balance conditions without excessive temporal smoothing.
+
+    | Metadata      | Value                                         |
+    |-------------- |-----------------------------------------------|
+    | Identifier    | spei3_severe_prob                             |
+    | Units         | probability (0-1)                             |
+    | Frequency     | YS                                            |
+    | Standard Name | probability_of_severe_agricultural_drought_occurrence |
+
+    Args:
+        pr: Monthly precipitation (as an xarray DataArray in mm/month).
+        tas: Monthly mean temperature (as an xarray DataArray in K or °C).
+        window: Time window for SPEI calculation in months (default: 3 for agricultural drought).
+        severe_threshold: SPEI threshold for severe drought (default: -1.5).
+
+    Returns:
+        xarray.DataArray: Annual probability of severe agricultural drought occurrence (0-1).
+
+    Notes:
+        SPEI-3 (3-month accumulation period) is the standard timescale for agricultural
+        drought assessment, capturing soil moisture conditions and seasonal water balance
+        without the smoothing effects of longer timescales.
+    """
+    # Calculate water budget using xclim with MB05 method
+    wb = xa.water_budget(pr=pr, tas=tas, method="MB05")
+
+    # Calculate SPEI-3 using xclim's built-in function
+    spei = xa.standardized_precipitation_evapotranspiration_index(
+        wb=wb, freq="MS", window=window, wb_cal=wb
+    )
+
+    # Calculate annual probability of severe drought
+    severe_drought = spei <= severe_threshold
+    return severe_drought.resample(time="YS").mean(dim="time")
+
+
+def par_plant_level(rsds: xr.DataArray, par_fraction: float = 0.45) -> xr.DataArray:
+    """**Photosynthetically active radiation at plant level**
+
+    Calculate photosynthetically active radiation (PAR) at plant level,
+    assuming full sunlight conditions without canopy shading effects.
+
+    | Metadata      | Value                                         |
+    |-------------- |-----------------------------------------------|
+    | Identifier    | par_plant_level                               |
+    | Units         | μmol m-2 s-1                                  |
+    | Frequency     | YS                                            |
+    | Standard Name | photosynthetically_active_radiation_at_plant_level |
+
+    Args:
+        rsds: Surface downwelling shortwave radiation (as an xarray DataArray in W/m²).
+        par_fraction: Fraction of solar radiation that is PAR (default: 0.45).
+
+    Returns:
+        xarray.DataArray: Annual mean PAR at plant level in μmol/m²/s.
+    """
+    # Convert solar radiation to PAR
+    # Conversion factor: W/m² to μmol/m²/s for PAR
+    par = rsds * par_fraction * 4.57
+
+    # Calculate annual mean
+    return par.resample(time="YS").mean()
