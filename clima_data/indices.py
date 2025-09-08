@@ -450,9 +450,7 @@ def spei3_severe_prob(
     wb = xi.water_budget(pr=pr, tas=tas, method="MB05")
 
     # Calculate SPEI-3 using xclim's built-in function
-    spei = xa.standardized_precipitation_evapotranspiration_index(
-        wb=wb, freq="MS", window=window, wb_cal=wb
-    )
+    spei = xi.standardized_precipitation_evapotranspiration_index(wb=wb, freq="MS", window=window)
 
     # Calculate annual probability of severe drought
     severe_drought = spei <= severe_threshold
