@@ -37,6 +37,7 @@ DASK_CONFIG = {
     "n_workers": 32,
     "threads_per_worker": 1,
     "memory_limit": "10GB",  # request 320GB for 32 workers
+    "local_directory": "/tmp",  # Use local tmp for faster I/O on cluster
 }
 
 CHUNK_CONFIG = {
