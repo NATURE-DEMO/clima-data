@@ -479,6 +479,76 @@ def spei3_severe_prob(
     return annual_prob  # type: ignore[no-any-return]
 
 
+"""Wind climatic indices"""
+
+
+def sfcwind_year(sfcWind: xr.DataArray) -> xr.DataArray:
+    """**Annual mean wind speed at 10m**
+
+    Mean of daily mean wind speed aggregated yearly.
+
+    | Metadata      | Value           |
+    |-------------- |-----------------|
+    | Identifier    | sfcwind_year    |
+    | Units         | m s-1           |
+    | Frequency     | YS              |
+    | Standard Name | wind_speed      |
+
+    Args:
+        sfcWind: Near-surface wind speed (as an xarray DataArray).
+
+    Returns:
+        xarray.DataArray: Annual mean wind speed.
+    """
+    return sfcWind.resample(time="YS").mean()
+
+
+def sfcwind10(sfcWind: xr.DataArray) -> xr.DataArray:
+    """**Annual days with wind speed >= 10 m/s**
+
+    Number of days per year with daily mean wind speed >= 10 m/s
+    (~36 km/h, Beaufort 6). Captures the chronic wind hazard driver —
+    operational disruption threshold.
+
+    | Metadata      | Value                                         |
+    |-------------- |-----------------------------------------------|
+    | Identifier    | sfcwind10                                     |
+    | Units         | days                                          |
+    | Frequency     | YS                                            |
+    | Standard Name | number_of_days_with_wind_speed_above_threshold |
+
+    Args:
+        sfcWind: Near-surface wind speed (as an xarray DataArray in m/s).
+
+    Returns:
+        xarray.DataArray: Number of days per year with wind speed >= 10 m/s.
+    """
+    return (sfcWind >= 10.0).resample(time="YS").sum(dim="time")
+
+
+def sfcwind20(sfcWind: xr.DataArray) -> xr.DataArray:
+    """**Annual days with wind speed >= 20 m/s**
+
+    Number of days per year with daily mean wind speed >= 20 m/s
+    (~72 km/h, Beaufort 8-9). Captures the acute wind hazard driver —
+    storm and structural damage threshold.
+
+    | Metadata      | Value                                         |
+    |-------------- |-----------------------------------------------|
+    | Identifier    | sfcwind20                                     |
+    | Units         | days                                          |
+    | Frequency     | YS                                            |
+    | Standard Name | number_of_days_with_wind_speed_above_threshold |
+
+    Args:
+        sfcWind: Near-surface wind speed (as an xarray DataArray in m/s).
+
+    Returns:
+        xarray.DataArray: Number of days per year with wind speed >= 20 m/s.
+    """
+    return (sfcWind >= 20.0).resample(time="YS").sum(dim="time")
+
+
 def par_plant_level(rsds: xr.DataArray, par_fraction: float = 0.45) -> xr.DataArray:
     """**Photosynthetically active radiation at plant level**
 
